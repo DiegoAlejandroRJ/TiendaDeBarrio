@@ -1,11 +1,21 @@
 package org.example;
+import model.Product;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        instanciando();
         Main main = new Main();
         main.runMenu();
     }
+
+    public static void instanciando(){
+        Product productoAgua= new Product("agua", 2500, 1);
+        System.out.println("Producto " + productoAgua.getName());
+    }
+
+
     public void displayMenu() {
 
         System.out.println(

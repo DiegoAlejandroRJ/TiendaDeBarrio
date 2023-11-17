@@ -37,7 +37,7 @@ public class ProductsArray {
         alphabeticOrder(productsArray);
 
     }
-    public static void printer(String[] productsArray, String letra) {
+    private static void printer(String[] productsArray, String letra) {
         for (String product : productsArray){
             if(product.startsWith(letra)){
                 System.out.println(product);
@@ -45,7 +45,7 @@ public class ProductsArray {
         }
     }
 
-    public static void alphabeticOrder (String[] productsArray){
+    private static void alphabeticOrder (String[] productsArray){
         Arrays.sort(productsArray);
         System.out.println("A continuación se presentan los productos ordenados alfabéticamente: ");
         for (String product : productsArray){
