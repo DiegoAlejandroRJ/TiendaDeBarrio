@@ -13,6 +13,10 @@ public class Main {
     public static void instanciando(){
         Product productoAgua= new Product("agua", 2500, 1);
         System.out.println("Producto " + productoAgua.getName());
+        productoAgua.containsWord("agu");
+        productoAgua.priceUpperComparison(80);
+        productoAgua.priceLowerComparison(5000);
+        productoAgua.aviableInStock();
     }
 
 
@@ -71,7 +75,7 @@ public class Main {
         System.out.println("All products.");
     }
     public void userGuide(){
-        System.out.println("userGuide");
+        System.out.println("user guide");
     }
     public void moreOptions(){
         System.out.println("a product will be removed.");

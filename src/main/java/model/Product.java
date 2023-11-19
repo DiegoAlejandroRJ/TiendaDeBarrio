@@ -1,22 +1,46 @@
 package model;
 
-
 public class Product {
-    private String name;
-    private double price;
+    private static String name;
+    private static double price;
     private static int stock;
 
     public Product(String name, double price, int stock) {
         this.name = name;
         this.price = price;
         this.stock = stock;
+
     }
 
-    private static void aviableInStock(){
-        if(stock <= 0){
-            System.out.println("El producto no se encuentra en Stock.");
+    public static void containsWord(String palabraBuscada) {
+        if(name.toLowerCase().contains(palabraBuscada.toLowerCase())){
+            System.out.println("Se encontró el producto " + name +" con el criterio de búsqueda " + palabraBuscada);
         }
     }
+
+    public static void priceUpperComparison(double inputNumber){
+        if( price > inputNumber ){
+            double diferencia =  (price - inputNumber);
+            System.out.println("El precio del producto es mayor que el valor ingresado en " + diferencia);
+        }
+    }
+
+    public static void aviableInStock(){
+        if(stock <= 0){
+            System.out.println("El producto no se encuentra en Stock.");
+        } else {
+            System.out.println("Hay " + stock + " item(s) en stock");
+        }
+    }
+
+
+    public static void priceLowerComparison(double inputNumber){
+        if( price <= inputNumber ){
+            double diferencia =  (inputNumber - price);
+            System.out.println("El precio del producto es menor que el valor ingresado en " + diferencia);
+        }
+    }
+
 
     public String getName() {
         return name;
