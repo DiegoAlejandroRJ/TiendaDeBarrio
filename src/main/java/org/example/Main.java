@@ -1,22 +1,47 @@
 package org.example;
 import model.Product;
-
+import model.User;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        instanciando();
+        instanciandoProducto();
         Main main = new Main();
         main.runMenu();
     }
 
-    public static void instanciando(){
-        Product productoAgua= new Product("agua", 2500, 1);
+    public static void instanciandoProducto(){
+        Product productoAgua= new Product("agua", 2500, 1, "liquido");
         System.out.println("Producto " + productoAgua.getName());
         productoAgua.containsWord("agu");
         productoAgua.priceUpperComparison(80);
         productoAgua.priceLowerComparison(5000);
         productoAgua.aviableInStock();
+
+        Product productoJugo = new Product("jugo", 3000, 3, "liquido");
+        System.out.println("Producto " + productoJugo.getName());
+        productoJugo.getStock();
+    }
+
+    public User instanciandoUser(){
+        User mainUser =  new User();
+        return mainUser;
+    }
+
+    public void handleUserChoice(int choice){
+        User mainUser = instanciandoUser();
+        switch (choice) {
+
+            case 1 -> mainUser.addProduct();
+            case 2 -> mainUser.removeProduct();
+            case 3 -> mainUser.updateProduct();
+            case 4 -> mainUser.allProducts();
+            case 5 -> mainUser.userGuide();
+            case 6 -> mainUser.moreOptions();
+            case 7 -> System.out.println("Saliendo...");
+            default -> System.out.println("Opción inválida. Por favor intenta de nuevo.");
+        }
+
     }
 
 
@@ -48,38 +73,9 @@ public class Main {
     }
 
 
-    private void handleUserChoice(int choice){
-        switch (choice) {
-            case 1 -> addProduct();
-            case 2 -> removeProduct();
-            case 3 -> updateProduct();
-            case 4 -> allProducts();
-            case 5 -> userGuide();
-            case 6 -> moreOptions();
-            case 7 -> System.out.println("Saliendo...");
-            default -> System.out.println("Opción inválida. Por favor intenta de nuevo.");
-        }
 
-    }
 
-    public void addProduct(){
-        System.out.println("a product will be added.");
-    }
-    public void removeProduct(){
-        System.out.println("a product will be removed.");
-    }
-    public void updateProduct(){
-        System.out.println("a product will be updated.");
-    }
-    public void allProducts(){
-        System.out.println("All products.");
-    }
-    public void userGuide(){
-        System.out.println("user guide");
-    }
-    public void moreOptions(){
-        System.out.println("a product will be removed.");
-    }
+
     public void runMenu () {
         int choice;
         Scanner scanner = new Scanner(System.in);
