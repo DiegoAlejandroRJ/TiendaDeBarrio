@@ -1,31 +1,37 @@
 package model;
 
 public class Product {
-    private static String name;
-    private static double price;
-    private static int stock;
+    private String name;
+    private double price;
+    private int stock;
+    private String description;
+    private String category;
+    private String tags;
 
-    public Product(String name, double price, int stock) {
+    public Product(String name, double price, int stock, String description) {
         this.name = name;
         this.price = price;
         this.stock = stock;
+        this.description = description;
+        this.category = category;
+        this.tags = tags;
 
     }
 
-    public static void containsWord(String palabraBuscada) {
+    public void containsWord(String palabraBuscada) {
         if(name.toLowerCase().contains(palabraBuscada.toLowerCase())){
             System.out.println("Se encontró el producto " + name +" con el criterio de búsqueda " + palabraBuscada);
         }
     }
 
-    public static void priceUpperComparison(double inputNumber){
+    public void priceUpperComparison(double inputNumber){
         if( price > inputNumber ){
             double diferencia =  (price - inputNumber);
             System.out.println("El precio del producto es mayor que el valor ingresado en " + diferencia);
         }
     }
 
-    public static void aviableInStock(){
+    public void aviableInStock(){
         if(stock <= 0){
             System.out.println("El producto no se encuentra en Stock.");
         } else {
@@ -34,13 +40,12 @@ public class Product {
     }
 
 
-    public static void priceLowerComparison(double inputNumber){
+    public void priceLowerComparison(double inputNumber){
         if( price <= inputNumber ){
             double diferencia =  (inputNumber - price);
             System.out.println("El precio del producto es menor que el valor ingresado en " + diferencia);
         }
     }
-
 
     public String getName() {
         return name;
@@ -64,6 +69,30 @@ public class Product {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
     @Override
