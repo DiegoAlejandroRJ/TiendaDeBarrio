@@ -2,9 +2,15 @@ package org.example;
 import model.Product;
 import model.User;
 import java.util.Scanner;
+import java.util.Calendar;
 
 public class Main {
     public static void main(String[] args) {
+        Calendar date = Calendar.getInstance();
+        System.out.println("La fecha es: " + date.getTime());
+        System.out.println("");
+        System.out.println("");
+
         instanciandoProducto();
         Main main = new Main();
         main.runMenu();
