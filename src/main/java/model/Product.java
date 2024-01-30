@@ -1,14 +1,14 @@
 package model;
 
 public class Product {
-    private String name;
-    private double price;
-    private int stock;
-    private String description;
-    private String category;
-    private String tags;
+    public String name;
+    public double price;
+    public int stock;
+    public String description;
+    public String category;
+    public String tags;
 
-    public Product(String name, double price, int stock, String description) {
+    public Product(String name, double price, int stock, String description, String category, String tags) {
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -38,7 +38,6 @@ public class Product {
             System.out.println("Hay " + stock + " item(s) en stock");
         }
     }
-
 
     public void priceLowerComparison(double inputNumber){
         if( price <= inputNumber ){
@@ -97,8 +96,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "{ 'name':" + name + ", price:" + price + ", stock:" + stock + "}";
+        return "{ 'name':" + name + ", price:" + price + ", stock:" + stock + ", description:"+description+", category:"+category+",tags: "+tags+ "}";
     }
+
+
 
 }
 

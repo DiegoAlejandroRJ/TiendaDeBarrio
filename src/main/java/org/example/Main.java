@@ -1,58 +1,35 @@
 package org.example;
-import model.Product;
-import model.User;
+import model.ProductManager;
 import java.util.Scanner;
 import java.util.Calendar;
 
 public class Main {
+
+    ProductManager ProductManager = new ProductManager();
     public static void main(String[] args) {
         Calendar date = Calendar.getInstance();
         System.out.println("La fecha es: " + date.getTime());
         System.out.println("");
         System.out.println("");
-
-        instanciandoProducto();
         Main main = new Main();
         main.runMenu();
     }
 
-    public static void instanciandoProducto(){
-        Product productoAgua= new Product("agua", 2500, 1, "liquido");
-        System.out.println("Producto " + productoAgua.getName());
-        productoAgua.containsWord("agu");
-        productoAgua.priceUpperComparison(80);
-        productoAgua.priceLowerComparison(5000);
-        productoAgua.aviableInStock();
-
-        Product productoJugo = new Product("jugo", 3000, 3, "liquido");
-        System.out.println("Producto " + productoJugo.getName());
-        productoJugo.getStock();
-    }
-
-    public User instanciandoUser(){
-        User mainUser =  new User();
-        return mainUser;
-    }
-
     public void handleUserChoice(int choice){
-        User mainUser = instanciandoUser();
-        switch (choice) {
 
-            case 1 -> mainUser.addProduct();
-            case 2 -> mainUser.removeProduct();
-            case 3 -> mainUser.updateProduct();
-            case 4 -> mainUser.allProducts();
-            case 5 -> mainUser.userGuide();
-            case 6 -> mainUser.moreOptions();
+        switch (choice) {
+            case 1 -> ProductManager.addProduct();
+            case 2 -> ProductManager.removeProduct();
+            case 3 -> ProductManager.updateProduct();
+            case 4 -> ProductManager.allProducts();
+            case 5 -> ProductManager.userGuide();
+            case 6 -> ProductManager.moreOptions();
             case 7 -> System.out.println("Saliendo...");
             default -> System.out.println("Opción inválida. Por favor intenta de nuevo.");
         }
-
     }
 
-
     public void displayMenu() {
-
         System.out.println(
                 """
                         |o|                         /////////////\\\\\\
@@ -72,15 +49,11 @@ public class Main {
         System.out.println("3. Actualizar producto                   |");
         System.out.println("4. Ver todos los productos               |");
         System.out.println("5. Ver el manual de usuario              |");
-        System.out.println("6. Ver más opciones                                  |");
-        System.out.println("7. Salir                                  |");
+        System.out.println("6. Ver más opciones                      |");
+        System.out.println("7. Salir                                 |");
         System.out.println("±----------------------------------------±");
         System.out.print("   Ingresa tu opción:    (1 - 7)  ");
     }
-
-
-
-
 
     public void runMenu () {
         int choice;
