@@ -18,6 +18,10 @@ public class Product {
 
     }
 
+    public Product() {
+
+    }
+
     public void containsWord(String palabraBuscada) {
         if(name.toLowerCase().contains(palabraBuscada.toLowerCase())){
             System.out.println("Se encontró el producto " + name +" con el criterio de búsqueda " + palabraBuscada);
