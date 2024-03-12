@@ -1,2 +1,10 @@
-package org.example.exceptions;public class ProductNotFoundException {
+package org.example.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
+public class ProductNotFoundException extends ResponseStatusException {
+    public ProductNotFoundException(String id) {
+        super(HttpStatus.NOT_FOUND, "product with ID: " + id + " not found");
+    }
 }

@@ -1,9 +1,9 @@
-package service;
+package org.example.service;
 
-import model.Product;
+import org.example.model.Product;
+import org.example.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.ProductsRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +19,8 @@ public class ProductsServiceImpl implements ProductsService{
 
     @Override
     public Product save(Product product) {
-        String idProduct = product.getId();
-        return  productsRepository.save(product);
+        //String idProduct = product.getId();
+        return (Product) productsRepository.save(product);
     }
 
     @Override
@@ -45,8 +45,8 @@ public class ProductsServiceImpl implements ProductsService{
         if (!product.getId().equals(productId)){
             throw new IllegalArgumentException("Product Id " + productId);
         }
-        Product updateProduct = productsRepository.save(product);
-        return productsRepository.save(product);
+        Product updateProduct = (Product) productsRepository.save(product);
+        return (Product) productsRepository.save(product);
     }
 
 
