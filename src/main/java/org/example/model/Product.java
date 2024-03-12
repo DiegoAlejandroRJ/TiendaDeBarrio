@@ -1,6 +1,16 @@
 package model;
 
-public class Product {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.io.Serializable;
+
+@Document(collection = "product_collection")
+public class Product implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    private String id;
     public String name;
     public double price;
     public int stock;
@@ -8,7 +18,8 @@ public class Product {
     public String category;
     public String tags;
 
-    public Product(String name, double price, int stock, String description, String category, String tags) {
+    public Product(String id, String name, double price, int stock, String description, String category, String tags) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.stock = stock;
@@ -21,7 +32,7 @@ public class Product {
     public Product() {
 
     }
-
+    /*
     public void containsWord(String palabraBuscada) {
         if(name.toLowerCase().contains(palabraBuscada.toLowerCase())){
             System.out.println("Se encontró el producto " + name +" con el criterio de búsqueda " + palabraBuscada);
@@ -48,12 +59,14 @@ public class Product {
             double diferencia =  (inputNumber - price);
             System.out.println("El precio del producto es menor que el valor ingresado en " + diferencia);
         }
-    }
+    }*/
 
+    public String getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }

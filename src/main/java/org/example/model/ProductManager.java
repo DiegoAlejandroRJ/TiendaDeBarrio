@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class ProductManager implements Managing {
 
+    private String id;
+
     public static void creatingProducts(){
         try {
             File file = new File("resources/inventory.csv");
@@ -55,7 +57,7 @@ public class ProductManager implements Managing {
         String Category = scanner.nextLine();
         System.out.println("Give a Tag to the product...");
         String Tag = scanner.nextLine();
-        Product newProduct = new Product(newProductName, Price, Stock, Description, Category, Tag);
+        Product newProduct = new Product(id, newProductName, Price, Stock, Description, Category, Tag);
         System.out.println("Product " + newProduct.getName() + " Price: "+ Price + " Description: " + Description + " Category: " + Category + " Tag: " + Tag);
         productsArrayList.add(newProduct);
     }
