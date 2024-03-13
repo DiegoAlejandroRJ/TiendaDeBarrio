@@ -1,2 +1,5 @@
-package org.example.model;public class RoleEnum {
+package org.example.model;
+public enum RoleEnum {
+    ADMIN,
+    USER
 }
