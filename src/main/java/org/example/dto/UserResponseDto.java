@@ -10,7 +10,7 @@ public class UserResponseDto {
     private LocalDate birthDate;
     private String email;
 
-    public UserResponseDto(String id, String name, String lastName, String email) {
+    public UserResponseDto(String id, String name, String lastName, LocalDate birthDate, String email) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;

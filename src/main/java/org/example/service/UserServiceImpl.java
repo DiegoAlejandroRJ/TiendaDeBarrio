@@ -3,6 +3,7 @@ package org.example.service;
 import org.example.dto.UserDto;
 import org.example.dto.UserMapper;
 import org.example.dto.UserResponseDto;
+import org.example.model.RoleEnum;
 import org.example.model.User;
 import org.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,12 @@ public class UserServiceImpl implements UserService{
     public UserResponseDto createUser(UserDto userDto) {
         return UserMapper.userToUserResponseDto(userRepository.createUser(UserMapper.userDtoToUser(userDto)));
     }
-
+    @Override
+    public UserResponseDto createUserAdmin(UserDto userDto) {
+        User userAdmin = UserMapper.userDtoToUser(userDto);
+        userAdmin.addRole(RoleEnum.ADMIN);
+        return UserMapper.userToUserResponseDto(userRepository.createUser(userAdmin));
+    }
     @Override
     public Boolean updateUser(String id, UserDto userDto) {
         return userRepository.updateUser(id, UserMapper.userDtoToUser(userDto));

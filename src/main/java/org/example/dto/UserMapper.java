@@ -2,6 +2,8 @@ package org.example.dto;
 
 import org.example.model.User;
 
+import java.time.LocalDate;
+
 public class UserMapper {
 
     public static UserResponseDto userToUserResponseDto(User user){
@@ -9,7 +11,7 @@ public class UserMapper {
                 user.getId(),
                 user.getName(),
                 user.getLastName(),
-                user.getEmail()
+                LocalDate.of(1950, 2, 15), user.getEmail()
         );
     }
 
